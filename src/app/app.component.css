@@ -1,0 +1,9 @@
+header {
+  background-color: var(--desaturated-dark-cyan);
+  min-width: 25%;
+}
+
+header img {
+  width: 100%;
+  height: auto;
+}

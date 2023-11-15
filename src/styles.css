@@ -1,1 +1,48 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: spartan;
+  src: url("assets/fonts/LeagueSpartan-Medium.ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: spartan;
+  src: url("assets/fonts/LeagueSpartan-Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  background-color: var(--light-grayish-cyan-bg);
+  font-family: spartan, sans-serif;
+}
+
+:root {
+  --desaturated-dark-cyan: hsl(180, 29%, 50%);
+  --light-grayish-cyan-bg : hsl(180, 52%, 96%); /*(Background)*/
+  --light-grayish-cyan-badges:  hsl(180, 31%, 95%);  /*(Filter Tablets):*/
+  --dark-grayish-cyan: hsl(180, 8%, 52%);
+  --very-dark-grayish-cyan: hsl(180, 14%, 20%);
+}
+
+main {
+  margin: 0 auto;
+  width: 90%;
+}
+
+
+@media screen and (min-width: 768px) {
+  main {
+    width: 80%;
+  }
+
+  .listing {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .badges {
+    justify-content: flex-end;
+  }
+}

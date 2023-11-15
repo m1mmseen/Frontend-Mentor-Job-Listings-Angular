@@ -1,0 +1,41 @@
+<main class="job-listings">
+  <div class="filter-bar" [ngClass]="filters.length <= 0 ? 'hidden': 'show'">
+    <div class="filters">
+      <div class="filter" *ngFor="let filter of filters">
+        <div class="label-container">
+          <span class="label-text">{{filter}}</span>
+          <button class="close-button" (click)="removeFilter(filter)">&times;</button>
+        </div>
+      </div>
+    </div>
+
+    <button class="clear-button" (click)="removeAllFilters()">Clear</button>
+  </div>
+  <div class="listings">
+    <div class="listing" [class.featured-border]="listing.featured" *ngFor="let listing of filteredListings">
+      <div class="infos">
+        <img src="{{listing.logo}}" alt="">
+        <div class="info-grid">
+          <div class="company">{{listing.company}}
+          <span class="new" [hidden]="!listing.new">new!</span>
+          <span class="featured" [hidden]="!listing.featured">featured!</span>
+          </div>
+          <h2 class="job-title">{{listing.position}}</h2>
+          <div class="job-specs">
+            <small>{{listing.postedAt}}</small>
+            <small>{{listing.contract}}</small>
+            <small>{{listing.location}}</small>
+          </div>
+        </div>
+      </div>
+      <div class="badges">
+        <div class="label-container" *ngFor="let badge of listing.languages" (click)="addFilter(badge)">
+          <span class="label-text">{{badge}}</span>
+        </div>
+        <div class="label-container" *ngFor="let tool of listing.tools" (click)="addFilter(tool)">
+          <span class="label-text">{{tool}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
