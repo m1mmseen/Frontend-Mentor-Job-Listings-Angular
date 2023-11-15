@@ -13,7 +13,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "baseHref": "https://m1mmseen.github.io/Frontend-Mentor-Job-Listings-Angular/",
             "outputPath": "dist/job-listings-angular",
             "index": "src/index.html",
             "main": "src/main.ts",
