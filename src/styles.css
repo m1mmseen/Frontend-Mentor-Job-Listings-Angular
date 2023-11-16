@@ -16,6 +16,7 @@ body {
   margin: 0;
   background-color: var(--light-grayish-cyan-bg);
   font-family: spartan, sans-serif;
+  max-width: 100%;
 }
 
 :root {

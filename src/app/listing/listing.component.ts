@@ -15,6 +15,7 @@ export class ListingComponent {
     filters : String[] = [];
     currentListing: Job[] = [];
 
+
     constructor() {
       this.listings = Jobs;
       this.filteredListings = this.listings
@@ -26,9 +27,8 @@ export class ListingComponent {
       if (clickedFilter === undefined) {
         this.filters.push(filter);
       }
-      filter = this.filters.toString();
-      console.log(filter);
-      this.filteredListings = this.filteredListings.filter(element => this.filters.every((i) => element.languages.includes(i) || element.tools.includes(i)));
+
+      this.filteredListings = this.filteredListings = this.listings.filter(element => this.filters.every((i) => element.languages.includes(i) || element.tools.includes(i) || element.level === i  || element.role === i ));
     }
 
     removeFilter(filter: String) {
@@ -37,7 +37,7 @@ export class ListingComponent {
         this.filters = this.filters.filter((filter) => filter != clickedFilter);
       }
       if (this.filters.length > 0) {
-        this.filteredListings = this.listings.filter(element => this.filters.every((i) => element.languages.includes(i) || element.tools.includes(i)));
+        this.filteredListings = this.listings.filter(element => this.filters.every((i) => element.languages.includes(i) || element.tools.includes(i) || element.level === i  || element.role === i ));
       } else {
         this.filteredListings = this.listings;
       }
@@ -46,6 +46,21 @@ export class ListingComponent {
     removeAllFilters() {
       this.filters =[];
       this.filteredListings = this.listings;
-}
+    }
+
+    filterListings(filter : String) {
+      this.filteredListings = this.filteredListings.filter(element => this.filters.every((i) => element.languages.includes(i) || element.tools.includes(i)));
+    }
+
+    filterListingsRoleOrLevel(filter : String, role :boolean) {
+      if (role) {
+        this.filteredListings = this.filteredListings.filter(element => this.filters.includes(element.role));
+      } else {
+        this.filteredListings = this.filteredListings.filter(element => this.filters.includes(element.level));
+      }
+    }
+
+
+
 
 }
